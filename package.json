@@ -1,0 +1,22 @@
+{
+  "name": "kuro-workspaces",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "prepare": "lerna run prepare",
+    "clean": "lerna clean -f --yes && rm -rf node_modules",
+    "reset": "yarn run clean && yarn",
+    "build": "yarn --cwd packages/kuro-app build",
+    "start": "yarn --cwd packages/kuro-app start"
+  },
+  "devDependencies": {
+    "lerna": "^2.11.0",
+    "typescript": "^2.9.2"
+  },
+  "workspaces": {
+    "packages": ["packages/**"],
+    "nohoist": ["**/react-scripts-ts", "**/react-scripts-ts/**"]
+  }
+}
